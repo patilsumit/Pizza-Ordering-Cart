@@ -1,0 +1,29 @@
+<h1 style="text-align:center">Pizza List</h1>
+
+<ul class="list-unstyled " *ngIf="arrayList.length">
+    
+    <li class="card card-body mb-2">
+        
+        <table class="table w-50 mx-auto" border="2" >
+            <tr *ngFor="let item of arrayList" >
+                
+                <td style="font-size:1rem ;" >{{item.toUpperCase()}}</td>
+                <td class="d-flex justify-content-end align-items-center" >
+                    <button class="btn btn-dark btn-sm" (click)="handler(item,'minus')" [disabled]="itemsObjects[item].minus">
+                        <i class='fa fa-minus'></i>
+                    </button>
+                    <span class="mx-2 text-center" style="width:20px">{{itemsObjects[item].number}}</span>
+
+                    <button class="btn btn-dark btn-sm" (click)="handler(item,'plus')" [disabled]="itemsObjects[item].plus">
+                        <i class='fa fa-plus'></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;font-size:2rem ;">Total Price:</td>
+                <td style="font-weight: bold;font-size:2rem ;" class="d-flex justify-content-end">{{totalPrice}}</td>
+            </tr>            
+        </table>
+
+    </li>
+</ul>
